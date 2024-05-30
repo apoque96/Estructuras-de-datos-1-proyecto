@@ -157,7 +157,6 @@ fn determine_winner(auction: &String, customers_db: &HashMap<u64, Customer>) -> 
 pub async fn get_winner<'f>(database: TempFile<'f>, file: TempFile<'f>) -> Vec<String> {
     let customers_db = load_db(read_all_lines(database).await);
     let auctions = read_all_lines(file).await;
-    println!("{:?}", auctions[0]);
     let mut ans: Vec<String> = vec![];
 
     for auction in auctions {
@@ -168,6 +167,5 @@ pub async fn get_winner<'f>(database: TempFile<'f>, file: TempFile<'f>) -> Vec<S
             ans.push(serde_json::to_string(&winner).unwrap());
         }
     }
-    println!("{:?}", ans);
     ans
 }
