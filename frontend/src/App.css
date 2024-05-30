@@ -1,42 +1,150 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --background: #e1e4e8ff;
+  --secondBackground: #5c83abff;
+  --header: #5c84acff;
+  --button: #549cbfff;
+  --instructions: #6aaccaff;
+  --upload: #2585bbff;
+  --result: #253b5eff;
+  --border: #e0e8efff;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.App {
+  color: white;
+  height: calc(100vh - 26px);
+  width: calc(100vw - 26px);
+  background-color: var(--secondBackground);
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
+}
+
+.App .btn {
+  color: white;
+}
+
+.App-header {
+  grid-column: 1/3;
+  border: 10px ridge var(--border);
+  margin: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 10px;
+  background-color: var(--header);
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  margin-left: auto;
+  margin-right: 5px;
+  border: 4px ridge var(--border);
+  width: 10rem;
+  font-size: 1.8rem;
+  background-color: var(--button);
+  &:hover {
+    scale: 1.01;
+    box-shadow: 0px 0px 4px var(--border);
+  }
+}
+
+.content {
+  margin: 5px;
+  margin-bottom: 0;
+  border: 10px ridge var(--border);
+  grid-row: 2/4;
+  background-color: var(--result);
+}
+
+.blocker {
+  height: 100%;
   text-align: center;
+  font-size: 6rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.instructions {
+  border: 10px ridge var(--border);
+  margin: 5px;
+  background-color: var(--instructions);
+  grid-row: 2;
+  font-size: 1.3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.instructions-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+dialog {
+  background-color: var(--secondBackground);
+  border: 10px ridge var(--border);
+}
+
+dialog > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+dialog > div > .btn {
+  margin-left: 0;
+}
+
+.main-form {
+  background-color: var(--result);
+  border: 10px ridge var(--border);
+}
+
+.input-container {
+  color: white;
+  padding: 20px;
+  background-color: var(--instructions);
+  border: 10px ridge var(--border);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1.5rem;
+}
+
+.input-container > label {
+  font-weight: bold;
+}
+
+.input-container > input {
+  border: 8px ridge var(--border);
+  padding: 5px;
+  width: 10rem;
+  font-size: 1rem;
+  background-color: var(--secondBackground);
+  &:hover {
+    scale: 1.01;
+    box-shadow: 0px 0px 4px var(--border);
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.upload {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.upload > .btn {
+  margin: 0;
 }
