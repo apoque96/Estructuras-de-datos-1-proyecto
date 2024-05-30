@@ -56,9 +56,28 @@ body {
 .content {
   margin: 5px;
   margin-bottom: 0;
+  padding: 15px;
   border: 10px ridge var(--border);
   grid-row: 2/4;
   background-color: var(--result);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  width: 100%;
+}
+
+.cell {
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  width: 30%;
+  color: black;
+  background-color: var(--instructions);
+  padding: 1px;
+  border: 5px ridge var(--border);
 }
 
 .blocker {

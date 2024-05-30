@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 
-const Row = ({ dpi, first_name }) => {
+const Row = ({ signature, first_name, last_name, property }) => {
   return (
-    <div>
-      {dpi}
-      {first_name}
+    <div className="card">
+      <span className="cell">{signature}</span>
+      <span className="cell">{first_name + " " + last_name}</span>
+      <span className="cell">{property}</span>
     </div>
   );
 };
@@ -80,6 +81,7 @@ function App() {
         data = data.map((current) => JSON.parse(current));
         alert("File uploaded successfully!");
         setResult(data);
+        setModal(false);
       } else {
         alert("File upload failed!");
         setResult(null);
@@ -96,14 +98,30 @@ function App() {
         <Button text="Salir" onClick={null} />
       </header>
       <main className="content">
-        <div className="blocker">Ingrese datos</div>
-        {result.map((current) => (
+        {result.length > 0 ? (
           <Row
-            key={current.dpi}
-            dpi={current.dpi}
-            first_name={current.first_name}
+            key={0}
+            signature={"Firma digital"}
+            first_name={"Nombre"}
+            last_name={"completo"}
+            property={"Inmueble"}
           />
-        ))}
+        ) : (
+          <></>
+        )}
+        {result.length == 0 ? (
+          <div className="blocker">Ingrese datos</div>
+        ) : (
+          result.map((current) => (
+            <Row
+              key={current.signature}
+              signature={current.signature}
+              first_name={current.first_name}
+              last_name={current.last_name}
+              property={current.property}
+            />
+          ))
+        )}
       </main>
       <div className="instructions">
         <p className="instructions-title">Instrucciones</p>
